@@ -4,6 +4,39 @@
 
 ---
 
+## 2026-02-06 (Session 10 — IT3-06 Setup Guide + Vercel Analytics)
+
+### Session Summary
+- Completed IT3-06: Setup Guide — post-copy modal with email client instructions
+- Verified current Gmail/Outlook/Apple Mail setup steps via web search
+- Built SetupGuide + SetupGuideModal components, integrated into editor page via CopyButton onCopySuccess callback
+- Added Vercel Analytics (`@vercel/analytics`) to root layout
+- Tests increased from 198 to 217 (19 new tests), 18 to 19 suites
+- Build passing, all routes static
+- Iteration 3 is now COMPLETE (6/6 tasks)
+
+### Files Created
+- `components/editor/SetupGuide.tsx` — email client selector + step-by-step instructions
+- `components/editor/SetupGuideModal.tsx` — modal wrapper with backdrop, Escape key, "Got it" button
+- `__tests__/components/editor/SetupGuide.test.tsx` — 19 tests
+
+### Files Modified
+- `components/editor/CopyButton.tsx` — added `onCopySuccess` callback prop
+- `app/editor/page.tsx` — added SetupGuideModal state + rendering
+- `app/layout.tsx` — added Vercel Analytics component
+
+### Packages Added
+- `@vercel/analytics`
+
+### Test Count: 217 passing (19 suites)
+### Build: Passes (all routes static)
+
+### Next Session
+- Iteration 4 planning (multiple signatures UI, font selection, etc.)
+- Deploy to Vercel to activate analytics
+
+---
+
 ## 2026-02-06 (Session 9 — Iteration 3 Implementation)
 
 ### Session Summary

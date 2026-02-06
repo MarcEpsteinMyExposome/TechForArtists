@@ -41,7 +41,12 @@
       "Bash(gh auth:*)",
       "Bash(gh repo create:*)",
       "Bash(powershell -Command:*)",
-      "Bash(npm i:*)"
+      "Bash(npm i:*)",
+      "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" status)",
+      "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" diff --stat)",
+      "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" log --oneline -5)",
+      "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" add CLAUDE.md SESSION.md TASKS.md .claude/settings.local.json)",
+      "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" commit -m \"$\\(cat <<''EOF''\ndocs: mark Iteration 3 complete, update test counts and session notes\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")"
     ],
     "deny": [
       "Bash(rm:*)",

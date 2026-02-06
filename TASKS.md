@@ -5,7 +5,7 @@
 ## Current Status
 
 **Active Iteration:** 3 - Branding, Templates & Features
-**Tests:** 198 passing (18 test suites)
+**Tests:** 217 passing (19 test suites)
 **Build:** Passes (all routes static)
 **Lint:** 0 errors, 2 warnings
 
@@ -65,7 +65,7 @@ Branding, polish, templates, and new features.
 | IT3-03 | Pre-built signature templates — 5-6 curated starters with "Use Template" flow | DONE |
 | IT3-04 | Profile image upload — photo/URL to replace initials avatar in signatures | DONE |
 | IT3-05 | Custom color picker — arbitrary hex colors beyond the 8 presets | DONE |
-| IT3-06 | "How to use" setup guide — post-copy wizard asking email client, Gmail web step-by-step, polite fallback for others | PENDING |
+| IT3-06 | "How to use" setup guide — post-copy wizard asking email client, Gmail web step-by-step, polite fallback for others | DONE |
 
 ---
 

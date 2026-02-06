@@ -3,10 +3,10 @@
 ## Project Overview
 
 **Project:** Technology For Artists - Email Signature Builder
-**Status:** Iteration 3 - IN PROGRESS (5 of 6 tasks done)
+**Status:** Iteration 3 - COMPLETE (6 of 6 tasks done)
 **Live URL:** https://tech-for-artists.vercel.app
 **GitHub:** https://github.com/MarcEpsteinMyExposome/TechForArtists
-**Next:** IT3-06 — Setup Guide
+**Next:** Iteration 4 planning
 
 An email signature builder that allows users to create professional email signatures they can use in Gmail and other email apps. Features signature templates, live preview, and one-click copy.
 
@@ -104,7 +104,9 @@ __tests__/              # Jest tests (mirrors src structure)
 - Custom color picker with hex input (arbitrary colors beyond 8 presets)
 - Social media icons for social links (MageCDN SVG icons via CDN for 10 platforms, text fallback for vimeo/etsy)
 - 6 pre-built signature templates (Creative Professional, Corporate Classic, Minimalist, Bold & Colorful, Tech Founder, Freelancer) with "Use Template" flow
-- 198 passing tests across 18 test suites, build passes, lint clean
+- Post-copy setup guide modal with step-by-step instructions for Gmail, Outlook, Apple Mail (and generic fallback)
+- Vercel Analytics for tracking page views and usage
+- 217 passing tests across 19 test suites, build passes, lint clean
 - Full workflow documentation system
 
 ---
