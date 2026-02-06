@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Tech For Artists - Email Signature Builder",
+  title: "Technology For Artists - Email Signature Builder",
   description: "Create professional email signatures for Gmail and other email apps",
 };
 
@@ -18,7 +18,7 @@ export default function RootLayout({
         <header className="border-b border-gray-200 bg-white">
           <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
             <Link href="/" className="text-xl font-bold text-gray-900">
-              Tech For Artists
+              Technology For Artists
             </Link>
             <div className="flex gap-4">
               <Link href="/" className="text-sm text-gray-600 hover:text-gray-900">Home</Link>
