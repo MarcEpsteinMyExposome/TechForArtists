@@ -54,10 +54,21 @@ Task specs live in `.claude/tasks/` (active) and `.claude/tasks/archive/` (compl
 
 ---
 
+## Iteration 3 (Planned)
+
+Branding, polish, and templates.
+
+| Task | Description | Status |
+|------|-------------|--------|
+| IT3-01 | Technology for Artists branding refresh — logo, typography, color palette, consistent identity across all pages | PENDING |
+| IT3-02 | Landing page graphics — hero illustrations or visuals, polish home page with distinctive design | PENDING |
+| IT3-03 | Pre-built signature templates — curated starter templates users can select and customize | PENDING |
+
+---
+
 ## Future Ideas
 
 - **Profile image upload** — Allow users to upload a photo or provide an image URL to replace the initials circle avatar
-- **Pre-built templates** — Curated signature templates users can start from
 - **Multiple signature management** — UI for switching between and managing multiple signatures
 - **Custom color picker** — Allow arbitrary colors beyond the 8 presets
 - **Font selection** — Choose from email-safe fonts
