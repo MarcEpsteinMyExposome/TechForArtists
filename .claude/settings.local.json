@@ -35,7 +35,9 @@
       "WebFetch(domain:dev.to)",
       "Bash(npx next build:*)",
       "Bash(npx next lint)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(gh auth:*)",
+      "Bash(gh repo create:*)"
     ],
     "deny": [
       "Bash(rm:*)",
