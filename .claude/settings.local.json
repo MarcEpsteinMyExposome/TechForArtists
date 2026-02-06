@@ -46,7 +46,8 @@
       "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" diff --stat)",
       "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" log --oneline -5)",
       "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" add CLAUDE.md SESSION.md TASKS.md .claude/settings.local.json)",
-      "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" commit -m \"$\\(cat <<''EOF''\ndocs: mark Iteration 3 complete, update test counts and session notes\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" commit -m \"$\\(cat <<''EOF''\ndocs: mark Iteration 3 complete, update test counts and session notes\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" push)"
     ],
     "deny": [
       "Bash(rm:*)",
