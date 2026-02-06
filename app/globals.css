@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Force light mode — app doesn't have dark mode styles */
+@custom-variant dark (&:is(.dark *));
+
 @theme {
   --color-accent-50: #fefce8;
   --color-accent-100: #fef9c3;
