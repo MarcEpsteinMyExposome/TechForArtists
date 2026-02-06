@@ -1,0 +1,46 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(*)",
+      "Edit(*)",
+      "Write(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(npm test:*)",
+      "Bash(npm run:*)",
+      "Bash(npm run build)",
+      "Bash(ls:*)",
+      "Bash(pwd:*)",
+      "Bash(dir:*)",
+      "Bash(npm install:*)",
+      "Bash(where:*)",
+      "Bash(git fetch:*)",
+      "Bash(findstr:*)",
+      "Bash(git init:*)",
+      "WebFetch(domain:www.technologyforartists.com)",
+      "WebFetch(domain:www.instagram.com)",
+      "Bash(copy:*)",
+      "Bash(del:*)",
+      "Bash(npx jest:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:magecdn.com)",
+      "WebFetch(domain:simpleicons.org)",
+      "WebFetch(domain:s.magecdn.com)",
+      "Bash(curl:*)",
+      "WebFetch(domain:dev.to)",
+      "Bash(npx next build:*)",
+      "Bash(npx next lint)",
+      "Bash(git config:*)"
+    ],
+    "deny": [
+      "Bash(rm:*)",
+      "Bash(git push:*)",
+      "Bash(git reset --hard:*)"
+    ]
+  }
+}
