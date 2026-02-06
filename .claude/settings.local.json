@@ -23,7 +23,7 @@
       "Bash(findstr:*)",
       "Bash(git init:*)",
       "WebFetch(*)",
-      "WebSearch(*)"
+      "WebSearch(*)",
       "WebFetch(domain:www.technologyforartists.com)",
       "WebFetch(domain:www.instagram.com)",
       "Bash(copy:*)",
