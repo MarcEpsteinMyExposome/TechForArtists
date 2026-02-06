@@ -1,26 +1,28 @@
 'use client'
 
+import Link from 'next/link'
+
 export default function HomePage() {
   return (
-    <div className="space-y-8">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900">
-          Email Signature Builder
-        </h1>
-        <p className="mt-3 text-lg text-gray-600">
-          Create professional email signatures for Gmail and other email apps.
-        </p>
+    <div className="py-16 text-center">
+      <h1 className="text-4xl font-bold tracking-tight text-gray-900">
+        Email Signature Builder
+      </h1>
+      <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+        Create professional email signatures for Gmail, Outlook, and other email apps.
+        Customize colors, layouts, and social links.
+      </p>
+      <div className="mt-8">
+        <Link
+          href="/editor"
+          className="inline-block rounded-md bg-gray-900 px-6 py-3 text-sm font-medium text-white hover:bg-gray-800 transition-colors"
+        >
+          Create Your Signature
+        </Link>
       </div>
-
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-indigo-600">Iteration 1</h2>
-          <p className="mt-1 text-sm text-gray-500">Foundation & Data Models</p>
-          <span className="mt-3 inline-block rounded-full bg-yellow-100 px-3 py-1 text-xs font-medium text-yellow-800">
-            Next Up
-          </span>
-        </div>
-      </div>
+      <p className="mt-12 text-sm text-gray-400">
+        Built by Technology for Artists
+      </p>
     </div>
   )
 }

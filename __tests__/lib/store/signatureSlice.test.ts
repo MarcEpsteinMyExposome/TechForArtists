@@ -3,7 +3,7 @@ import { createMockSignature } from '@/lib/testing/mockData'
 
 describe('signatureSlice', () => {
   beforeEach(() => {
-    // Reset store between tests
+    localStorage.clear()
     useAppStore.setState({ signatures: [] })
   })
 
@@ -70,6 +70,19 @@ describe('signatureSlice', () => {
 
       expect(useAppStore.getState().signatures).toHaveLength(1)
       expect(useAppStore.getState().signatures[0].name).toBe('Keep')
+    })
+  })
+
+  describe('persistence', () => {
+    it('persists signatures to localStorage', () => {
+      const sig = createMockSignature()
+      useAppStore.getState().addSignature(sig)
+
+      const stored = localStorage.getItem('tech-for-artists-store')
+      expect(stored).not.toBeNull()
+      const parsed = JSON.parse(stored!)
+      expect(parsed.state.signatures).toHaveLength(1)
+      expect(parsed.state.signatures[0].id).toBe(sig.id)
     })
   })
 })

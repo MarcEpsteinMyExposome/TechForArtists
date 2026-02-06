@@ -117,17 +117,113 @@ Need a testing strategy that balances quality with development speed.
 
 ---
 
+### ADR-006: Table-Based HTML for Email Signatures
+**Date:** 2026-02-06
+**Status:** Accepted
+
+**Context:**
+Need to generate HTML signatures that render consistently across Gmail, Outlook, Apple Mail, and other email clients.
+
+**Options considered:**
+1. CSS flexbox/grid layout
+2. Table-based layout with inline styles
+
+**Decision:** Use **table-based HTML with inline styles**.
+
+**Rationale:**
+- Email clients strip `<style>` blocks and ignore most CSS
+- Tables are universally supported across all email clients
+- Inline styles on every element ensure consistent rendering
+- Proven approach used by major email signature tools
+
+**Consequences:**
+- More verbose HTML output
+- Two rendering paths: Tailwind preview (React) vs. table HTML (email)
+
+---
+
+### ADR-007: ClipboardItem API for Rich Text Copy
+**Date:** 2026-02-06
+**Status:** Accepted
+
+**Context:**
+Users need to copy signatures and paste them as formatted content into email clients.
+
+**Decision:** Use **ClipboardItem API** with `text/html` MIME type, falling back to `writeText()`.
+
+**Rationale:**
+- ClipboardItem with text/html preserves formatting when pasting
+- Fallback ensures basic functionality on older browsers
+- Include both text/html and text/plain blobs in ClipboardItem
+
+**Consequences:**
+- Requires HTTPS in production (Clipboard API security requirement)
+- Some older browsers may only get plain text fallback
+
+---
+
+### ADR-008: Mounted Guard for Zustand Persist + SSR
+**Date:** 2026-02-06
+**Status:** Accepted
+
+**Context:**
+Zustand persist middleware hydrates from localStorage on the client, causing server/client HTML mismatch (hydration error).
+
+**Decision:** Use a `mounted` state guard — render a loading placeholder until after first client-side render.
+
+**Rationale:**
+- Server renders with empty store state
+- Client hydrates from localStorage with real data
+- Mismatch causes React hydration error
+- Mounted guard ensures both render the same placeholder initially
+
+---
+
+### ADR-009: CDN-Hosted Social Media Icons (MageCDN)
+**Date:** 2026-02-06
+**Status:** Accepted
+
+**Context:**
+Social links in email signatures rendered as plain text ("Facebook", "LinkedIn"). Users expect recognizable brand icons.
+
+**Options considered:**
+1. Self-hosted PNG icons
+2. Simple Icons (SVG via CDN) — 3000+ brands but SVG-only, poor email client support
+3. MageCDN Social Icons (SVG via Cloudflare CDN) — 20+ platforms, free, reliable
+4. dmhendricks/signature-social-icons (jsDelivr CDN) — limited platform support
+
+**Decision:** Use **MageCDN Social Icons** (`https://s.magecdn.com/social/tc-{platform}.svg`) with text fallback for unsupported platforms.
+
+**Rationale:**
+- SVG via `<img>` tags works in all major email clients (Gmail, Outlook web, Apple Mail)
+- Cloudflare-hosted CDN — fast, reliable, free
+- Covers 10 of our 12 platforms (vimeo and etsy fall back to text)
+- Simple URL pattern, no API keys or setup needed
+
+**Consequences:**
+- External CDN dependency — icons break if MageCDN goes down (low risk, Cloudflare-backed)
+- Two rendering paths: `<img>` icons in email HTML, same CDN icons in React preview
+- Platforms without icons gracefully degrade to text labels
+
+---
+
 ## Future Decisions to Document
 
-- HTML signature generation approach (inline styles vs. table-based layout)
-- Clipboard API strategy (copy as HTML vs. copy as rich text)
-- Image handling (upload, URL, base64)
+- Image handling (upload, URL, base64) — currently using initials avatar, URL input is planned
 - Template storage format
-- Social media icon library choice
+- Vercel deployment configuration
 
 ---
 
 ## Update History
+
+**2026-02-06** - Social media icons ADR added
+- ADR-009: CDN-hosted social media icons (MageCDN)
+
+**2026-02-06** - Iteration 2 ADRs added
+- ADR-006: Table-based HTML for email signatures
+- ADR-007: ClipboardItem API for rich text copy
+- ADR-008: Mounted guard for Zustand persist + SSR
 
 **2026-02-06** - Initial ADR document created
 - ADR-001: Zustand for state management

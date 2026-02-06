@@ -36,3 +36,21 @@ global.IntersectionObserver = class IntersectionObserver {
   }
   unobserve() {}
 }
+
+// Mock Clipboard API
+Object.defineProperty(navigator, 'clipboard', {
+  writable: true,
+  configurable: true,
+  value: {
+    write: jest.fn().mockResolvedValue(undefined),
+    writeText: jest.fn().mockResolvedValue(undefined),
+    readText: jest.fn().mockResolvedValue(''),
+  },
+})
+
+// Mock ClipboardItem
+global.ClipboardItem = class ClipboardItem {
+  constructor(items) {
+    this.items = items
+  }
+}

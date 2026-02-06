@@ -3,8 +3,8 @@
 ## Project Overview
 
 **Project:** Tech For Artists - Email Signature Builder
-**Status:** Iteration 1 - Foundation (In Progress)
-**Next:** Define schemas, store, and basic editor UI
+**Status:** Iteration 2 - Usable Editor + Deploy (In Progress — Waves 1-5 done, 9/10 tasks)
+**Next:** Wave 6 — Vercel Deploy (IT2-10)
 
 An email signature builder that allows users to create professional email signatures they can use in Gmail and other email apps. Features signature templates, live preview, and one-click copy.
 
@@ -36,7 +36,7 @@ npm run lint     # Run ESLint
 
 | Page | URL | Description |
 |------|-----|-------------|
-| Home | `/` | Landing with iteration status cards |
+| Home | `/` | Landing page with CTA to editor |
 | Editor | `/editor` | Signature builder with live preview |
 | Templates | `/templates` | Pre-built signature templates |
 | Settings | `/settings` | Export/import data |
@@ -73,7 +73,8 @@ components/             # React components
 
 lib/                    # Business logic
 ├── schemas/            # Zod validation schemas
-├── store/              # Zustand store + slices
+├── store/              # Zustand store + slices (with persist)
+├── signature/          # HTML generation engine
 ├── validation/         # helpers.ts
 └── testing/            # Mock data factories
 
@@ -85,9 +86,20 @@ __tests__/              # Jest tests (mirrors src structure)
 ## Current Features
 
 - Project scaffold with Next.js 16.1 + TypeScript + Tailwind 4
-- Signature Zod schema with validation
-- Zustand store with signature slice (CRUD)
-- Jest + React Testing Library configured
+- Signature Zod schema with social links (12 platforms), custom links, branding (8 color presets, 3 layouts)
+- Zustand store with signature slice (CRUD) + localStorage persistence
+- Reusable UI components: Button, Input, Select, Card, SectionHeading
+- HTML signature generation engine (3 layouts: horizontal, stacked, compact) with email-compatible table-based HTML
+- Home page with hero + CTA, Settings page with export/import/clear data
+- Technology for Artists branding (clean, minimal, neutral palette)
+- Live signature preview component with 3 layouts (horizontal, stacked, compact) using React + Tailwind
+- Multi-section editor form with signature name, personal info, contact info, social links (add/remove with platform filtering), custom links, and branding (color swatches + layout picker)
+- Zustand store with activeSignatureId tracking and getActiveSignature derived state
+- Copy-to-clipboard with rich text HTML (ClipboardItem API + fallback), "Copied!" feedback
+- Editor page with two-column layout (form + sticky preview), auto-creates signature on first visit
+- Email HTML generation with initials avatar circle (table-based, email-client compatible)
+- Social media icons for social links (MageCDN SVG icons via CDN for 10 platforms, text fallback for vimeo/etsy)
+- 178 passing tests across 16 test suites, build passes, lint clean
 - Full workflow documentation system
 
 ---
@@ -167,4 +179,15 @@ className="bg-indigo-900 bg-opacity-30"
 
 ## Completed Iterations
 
-_None yet — starting Iteration 1._
+### Iteration 1 — Foundation & Data Models (2026-02-06)
+- Project scaffold, Zod schema, Zustand store, mock data, 27 tests, documentation system
+
+---
+
+## Future Ideas
+
+- **Profile image upload** — Allow users to upload a photo or provide an image URL to replace the initials circle avatar
+- **Pre-built templates** — Curated signature templates users can start from
+- **Multiple signature management** — UI for switching between and managing multiple signatures
+- **Custom color picker** — Allow arbitrary colors beyond the 8 presets
+- **Font selection** — Choose from email-safe fonts

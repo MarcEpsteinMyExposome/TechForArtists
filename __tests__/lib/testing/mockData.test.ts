@@ -25,4 +25,22 @@ describe('createMockSignature', () => {
     const sig2 = createMockSignature()
     expect(sig1.id).not.toBe(sig2.id)
   })
+
+  it('includes socialLinks with correct default value', () => {
+    const sig = createMockSignature()
+    expect(sig.socialLinks).toEqual([])
+  })
+
+  it('includes customLinks with correct default value', () => {
+    const sig = createMockSignature()
+    expect(sig.customLinks).toEqual([])
+  })
+
+  it('includes branding with correct default values', () => {
+    const sig = createMockSignature()
+    expect(sig.branding).toEqual({
+      colorPresetId: 'charcoal',
+      layoutPresetId: 'horizontal',
+    })
+  })
 })

@@ -1,5 +1,72 @@
 import { z } from 'zod'
 
+// ─── Social Platforms ───────────────────────────────────────────────
+
+/** Supported social media platforms */
+export const SOCIAL_PLATFORMS = [
+  'instagram', 'linkedin', 'behance', 'dribbble', 'twitter',
+  'tiktok', 'youtube', 'facebook', 'github', 'pinterest',
+  'vimeo', 'etsy',
+] as const
+
+/** Union type of supported social platform identifiers */
+export type SocialPlatform = typeof SOCIAL_PLATFORMS[number]
+
+/** Schema for a social media link */
+export const SocialLinkSchema = z.object({
+  platform: z.enum(SOCIAL_PLATFORMS),
+  url: z.string().url('Invalid URL'),
+})
+
+export type SocialLink = z.infer<typeof SocialLinkSchema>
+
+// ─── Custom Links ───────────────────────────────────────────────────
+
+/** Schema for a custom link (portfolio, store, etc.) */
+export const CustomLinkSchema = z.object({
+  label: z.string().min(1, 'Label is required').max(50),
+  url: z.string().url('Invalid URL'),
+})
+
+export type CustomLink = z.infer<typeof CustomLinkSchema>
+
+// ─── Color Presets ──────────────────────────────────────────────────
+
+/** Pre-defined color schemes for signatures */
+export const COLOR_PRESETS = [
+  { id: 'charcoal', label: 'Charcoal', primary: '#333333', accent: '#666666' },
+  { id: 'navy', label: 'Navy', primary: '#1a365d', accent: '#2b6cb0' },
+  { id: 'forest', label: 'Forest', primary: '#22543d', accent: '#38a169' },
+  { id: 'wine', label: 'Burgundy', primary: '#742a2a', accent: '#c53030' },
+  { id: 'slate', label: 'Slate', primary: '#4a5568', accent: '#718096' },
+  { id: 'midnight', label: 'Midnight', primary: '#1a202c', accent: '#4a5568' },
+  { id: 'ocean', label: 'Ocean', primary: '#2a4365', accent: '#3182ce' },
+  { id: 'minimal', label: 'Minimal', primary: '#000000', accent: '#888888' },
+] as const
+
+/** Union type of color preset IDs */
+export type ColorPresetId = typeof COLOR_PRESETS[number]['id']
+
+// ─── Layout Presets ─────────────────────────────────────────────────
+
+/** Available layout configurations for signatures */
+export const LAYOUT_PRESETS = ['horizontal', 'stacked', 'compact'] as const
+
+/** Union type of layout preset IDs */
+export type LayoutPresetId = typeof LAYOUT_PRESETS[number]
+
+// ─── Branding ───────────────────────────────────────────────────────
+
+/** Schema for signature branding options (colors + layout) */
+export const BrandingSchema = z.object({
+  colorPresetId: z.string().default('charcoal'),
+  layoutPresetId: z.enum(LAYOUT_PRESETS).default('horizontal'),
+})
+
+export type Branding = z.infer<typeof BrandingSchema>
+
+// ─── Signature Schema ───────────────────────────────────────────────
+
 /**
  * Email signature schema
  * Defines structure and validation rules for email signatures
@@ -31,6 +98,15 @@ export const SignatureSchema = z.object({
 
   /** Profile image URL or base64 */
   imageUrl: z.string().optional(),
+
+  /** Social media profile links */
+  socialLinks: z.array(SocialLinkSchema).max(10).default([]),
+
+  /** Custom links (portfolio, store, etc.) */
+  customLinks: z.array(CustomLinkSchema).max(5).default([]),
+
+  /** Branding options (color scheme + layout) */
+  branding: BrandingSchema.default({ colorPresetId: 'charcoal', layoutPresetId: 'horizontal' }),
 
   /** Timestamp of creation */
   createdAt: z.string().datetime(),
