@@ -1,7 +1,7 @@
 # Architecture Overview
 
 **Project:** Tech For Artists - Email Signature Builder
-**Last Updated:** 2026-02-06 (Iteration 2 — Waves 1-5 complete, 9/10 tasks + social media icons)
+**Last Updated:** 2026-02-06 (Iteration 2 — COMPLETE, deployed to Vercel)
 **Purpose:** Living document explaining how the codebase is structured and how pieces connect
 
 ---
@@ -201,8 +201,10 @@ See `DECISIONS.md` for full ADR records.
 - Social media icons via MageCDN (SVG icons for 10 platforms, text fallback for vimeo/etsy)
 - Home page with hero + CTA, Settings with export/import/clear
 
-### Remaining
-- **IT2-10:** Vercel Deploy
+### Deployment
+- **Vercel:** https://tech-for-artists.vercel.app
+- **GitHub:** https://github.com/MarcEpsteinMyExposome/TechForArtists
+- Auto-deploys on push to `master`
 
 ---
 

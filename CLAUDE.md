@@ -3,8 +3,10 @@
 ## Project Overview
 
 **Project:** Tech For Artists - Email Signature Builder
-**Status:** Iteration 2 - Usable Editor + Deploy (In Progress — Waves 1-5 done, 9/10 tasks)
-**Next:** Wave 6 — Vercel Deploy (IT2-10)
+**Status:** Iteration 2 - COMPLETE (all 10 tasks done)
+**Live URL:** https://tech-for-artists.vercel.app
+**GitHub:** https://github.com/MarcEpsteinMyExposome/TechForArtists
+**Next:** Iteration 3 — Branding, Graphics, Templates
 
 An email signature builder that allows users to create professional email signatures they can use in Gmail and other email apps. Features signature templates, live preview, and one-click copy.
 

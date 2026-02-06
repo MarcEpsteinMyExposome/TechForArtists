@@ -4,6 +4,20 @@
 
 ---
 
+## 2026-02-06 (Session 8 — Vercel Deploy + GitHub)
+
+### Session Summary
+- Pushed code to GitHub: https://github.com/MarcEpsteinMyExposome/TechForArtists
+- Deployed to Vercel: https://tech-for-artists.vercel.app
+- IT2-10 marked DONE — Iteration 2 fully complete (10/10 tasks)
+- Added Iteration 3 tasks to TASKS.md (IT3-01 branding, IT3-02 graphics, IT3-03 templates)
+- Added `nul` to .gitignore (Windows artifact)
+
+### Next Session
+- Iteration 3: Branding refresh, landing page graphics, pre-built templates
+
+---
+
 ## 2026-02-06 (Session 7 — Social Media Icons for Social Links)
 
 ### Session Summary

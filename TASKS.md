@@ -21,7 +21,7 @@ Foundation & data models — completed 2026-02-06.
 
 ---
 
-## Iteration 2 (In Progress)
+## Iteration 2 (DONE)
 
 | Task | Description | Status | Wave |
 |------|-------------|--------|------|
@@ -34,10 +34,10 @@ Foundation & data models — completed 2026-02-06.
 | IT2-07 | Copy-to-Clipboard | DONE | 4 |
 | IT2-08 | Editor Page Assembly | DONE | 5 |
 | IT2-09 | Update Other Pages | DONE | 2 |
-| IT2-10 | Build Verification & Vercel Deploy | PENDING | 5 |
+| IT2-10 | Build Verification & Vercel Deploy | DONE | 6 |
 
-**Completed:** 9/10 tasks (Waves 1-5 done) + social media icons feature
-**Next:** Wave 6 — IT2-10 (Vercel Deploy)
+**Completed:** 10/10 tasks + social media icons feature
+**Live URL:** https://tech-for-artists.vercel.app
 
 ---
 
