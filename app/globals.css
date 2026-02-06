@@ -1,1 +1,45 @@
 @import "tailwindcss";
+
+@theme {
+  --color-accent-50: #fefce8;
+  --color-accent-100: #fef9c3;
+  --color-accent-200: #fef08a;
+  --color-accent-300: #fde047;
+  --color-accent-400: #facc15;
+  --color-accent-500: #D4A843;
+  --color-accent-600: #b8922e;
+  --color-accent-700: #926f1e;
+  --color-accent-800: #6b4f16;
+  --color-accent-900: #4a3610;
+
+  --font-heading: var(--font-dm-sans), system-ui, sans-serif;
+}
+
+/* Apply heading font to all headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Nav link hover underline animation */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent-500);
+  transition: width 0.2s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link-active::after {
+  width: 100%;
+}

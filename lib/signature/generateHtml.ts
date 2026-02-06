@@ -1,5 +1,5 @@
 import { Signature } from '@/lib/schemas/signature.schema'
-import { resolveColorPreset } from './utils'
+import { resolveColors } from './utils'
 import { generateHorizontalHtml } from './layouts/horizontal'
 import { generateStackedHtml } from './layouts/stacked'
 import { generateCompactHtml } from './layouts/compact'
@@ -7,18 +7,19 @@ import { generateCompactHtml } from './layouts/compact'
 /**
  * Generate email-compatible HTML for a signature.
  * Routes to the correct layout based on branding.layoutPresetId.
+ * Supports both preset colors and custom user-defined colors.
  */
 export function generateSignatureHtml(signature: Signature): string {
-  const colors = resolveColorPreset(signature.branding.colorPresetId)
+  const colors = resolveColors(signature.branding)
 
   switch (signature.branding.layoutPresetId) {
     case 'horizontal':
-      return generateHorizontalHtml(signature, { primary: colors.primary, accent: colors.accent })
+      return generateHorizontalHtml(signature, colors)
     case 'stacked':
-      return generateStackedHtml(signature, { primary: colors.primary, accent: colors.accent })
+      return generateStackedHtml(signature, colors)
     case 'compact':
-      return generateCompactHtml(signature, { primary: colors.primary, accent: colors.accent })
+      return generateCompactHtml(signature, colors)
     default:
-      return generateHorizontalHtml(signature, { primary: colors.primary, accent: colors.accent })
+      return generateHorizontalHtml(signature, colors)
   }
 }

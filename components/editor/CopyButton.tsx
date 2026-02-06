@@ -6,9 +6,13 @@ import { generateSignatureHtml } from '@/lib/signature/generateHtml'
 import { copyHtmlToClipboard } from '@/lib/signature/clipboard'
 import Button from '@/components/ui/Button'
 
+interface CopyButtonProps {
+  onCopySuccess?: () => void
+}
+
 type ButtonLabel = 'Copy Signature' | 'Copied!' | 'Failed to copy'
 
-export default function CopyButton() {
+export default function CopyButton({ onCopySuccess }: CopyButtonProps) {
   const [label, setLabel] = useState<ButtonLabel>('Copy Signature')
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const getActiveSignature = useAppStore((state) => state.getActiveSignature)
@@ -34,6 +38,7 @@ export default function CopyButton() {
 
     if (success) {
       setLabel('Copied!')
+      onCopySuccess?.()
     } else {
       setLabel('Failed to copy')
     }

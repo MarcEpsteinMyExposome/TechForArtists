@@ -5,6 +5,7 @@ import { Signature } from '@/lib/schemas/signature.schema'
 import Card from '@/components/ui/Card'
 import SignatureNameField from '@/components/editor/SignatureNameField'
 import PersonalInfoSection from '@/components/editor/PersonalInfoSection'
+import ImageUpload from '@/components/editor/ImageUpload'
 import ContactInfoSection from '@/components/editor/ContactInfoSection'
 import SocialLinksSection from '@/components/editor/SocialLinksSection'
 import BrandingSection from '@/components/editor/BrandingSection'
@@ -40,6 +41,10 @@ export default function SignatureForm() {
 
       <Card>
         <PersonalInfoSection signature={signature} onUpdate={handleUpdate} />
+      </Card>
+
+      <Card>
+        <ImageUpload signature={signature} onUpdate={handleUpdate} />
       </Card>
 
       <Card>

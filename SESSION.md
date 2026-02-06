@@ -4,6 +4,52 @@
 
 ---
 
+## 2026-02-06 (Session 9 — Iteration 3 Implementation)
+
+### Session Summary
+- Completed 5 of 6 Iteration 3 tasks (IT3-01 through IT3-05) in parallel
+- Rebranded from "Tech For Artists" to "Technology For Artists" with new wordmark nav and footer
+- Added DM Sans Google Font and gold accent color (#D4A843)
+- Created mosaic hero background on home page with feature icons (IT3-02)
+- Implemented 6 pre-built signature templates with "Use Template" flow (IT3-03)
+- Added profile image upload with client-side Canvas API resize to base64 (IT3-04)
+- Added custom color picker with hex input alongside 8 color presets (IT3-05)
+- Tests increased from 178 to 198 (20 new tests), 16 to 18 suites
+- Build passing, all 6 routes static
+- IT3-06 (setup guide) remains pending
+
+### Files Created This Session
+- `components/templates/TemplateCard.tsx` — template preview card with "Use Template" button
+- `components/templates/TemplateList.tsx` — grid of 6 template cards
+- `components/editor/ImageUploadSection.tsx` — file upload + Canvas resize
+- `components/editor/ColorPicker.tsx` — 8 presets + hex input field
+- `lib/templates/index.ts` — 6 template definitions
+- `__tests__/components/templates/TemplateCard.test.tsx` — 7 tests
+- `__tests__/components/templates/TemplateList.test.tsx` — 3 tests
+- `__tests__/components/editor/ImageUploadSection.test.tsx` — 6 tests
+- `__tests__/components/editor/ColorPicker.test.tsx` — 4 tests
+
+### Files Modified This Session
+- `app/layout.tsx` — wordmark nav ("TECHNOLOGY for Artists"), DM Sans font, gold accent, footer
+- `app/page.tsx` — mosaic hero background with feature icons
+- `app/templates/page.tsx` — TemplateList component (removed "coming soon")
+- `lib/schemas/signature.schema.ts` — imageUrl optional string field
+- `components/editor/SignatureForm.tsx` — added ImageUploadSection
+- `components/editor/BrandingSection.tsx` — replaced color swatches with ColorPicker component
+- `lib/signature/layouts/horizontal.ts` — profile image support
+- `lib/signature/layouts/stacked.ts` — profile image support
+- `components/editor/preview/HorizontalLayout.tsx` — profile image rendering
+- `components/editor/preview/StackedLayout.tsx` — profile image rendering
+- `tailwind.config.ts` — DM Sans font + gold color
+
+### Test Count: 198 passing (18 suites)
+### Build: Passes (all routes static)
+
+### Next Session
+- IT3-06: Setup guide feature (post-copy wizard for Gmail and other email clients)
+
+---
+
 ## 2026-02-06 (Session 8 — Vercel Deploy + GitHub)
 
 ### Session Summary

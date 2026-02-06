@@ -1,4 +1,4 @@
-import { COLOR_PRESETS } from '@/lib/schemas/signature.schema'
+import { COLOR_PRESETS, type Branding } from '@/lib/schemas/signature.schema'
 
 /** Escape HTML entities to prevent XSS and rendering issues */
 export function escapeHtml(text: string): string {
@@ -13,6 +13,25 @@ export function escapeHtml(text: string): string {
 /** Resolve a color preset by ID, falls back to charcoal */
 export function resolveColorPreset(colorPresetId: string) {
   return COLOR_PRESETS.find((p) => p.id === colorPresetId) ?? COLOR_PRESETS[0]
+}
+
+/** Default fallback colors (charcoal) used when custom colors are not set */
+const FALLBACK_COLORS = { primary: COLOR_PRESETS[0].primary, accent: COLOR_PRESETS[0].accent }
+
+/**
+ * Resolve colors from branding, handling both presets and custom colors.
+ * When colorPresetId is 'custom', uses customPrimary/customAccent fields.
+ * Falls back to charcoal colors if custom colors aren't set.
+ */
+export function resolveColors(branding: Branding): { primary: string; accent: string } {
+  if (branding.colorPresetId === 'custom') {
+    return {
+      primary: branding.customPrimary ?? FALLBACK_COLORS.primary,
+      accent: branding.customAccent ?? FALLBACK_COLORS.accent,
+    }
+  }
+  const preset = resolveColorPreset(branding.colorPresetId)
+  return { primary: preset.primary, accent: preset.accent }
 }
 
 /** Strip protocol from URL for display (https://example.com -> example.com) */

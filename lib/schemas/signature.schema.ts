@@ -44,8 +44,8 @@ export const COLOR_PRESETS = [
   { id: 'minimal', label: 'Minimal', primary: '#000000', accent: '#888888' },
 ] as const
 
-/** Union type of color preset IDs */
-export type ColorPresetId = typeof COLOR_PRESETS[number]['id']
+/** Union type of color preset IDs (includes 'custom' for user-defined colors) */
+export type ColorPresetId = typeof COLOR_PRESETS[number]['id'] | 'custom'
 
 // ─── Layout Presets ─────────────────────────────────────────────────
 
@@ -57,10 +57,15 @@ export type LayoutPresetId = typeof LAYOUT_PRESETS[number]
 
 // ─── Branding ───────────────────────────────────────────────────────
 
+/** Regex for validating hex color strings (e.g. "#ff5500" or "#FFF") */
+const hexColorRegex = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/
+
 /** Schema for signature branding options (colors + layout) */
 export const BrandingSchema = z.object({
   colorPresetId: z.string().default('charcoal'),
   layoutPresetId: z.enum(LAYOUT_PRESETS).default('horizontal'),
+  customPrimary: z.string().regex(hexColorRegex, 'Invalid hex color').optional(),
+  customAccent: z.string().regex(hexColorRegex, 'Invalid hex color').optional(),
 })
 
 export type Branding = z.infer<typeof BrandingSchema>

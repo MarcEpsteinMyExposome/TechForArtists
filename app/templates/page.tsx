@@ -1,19 +1,56 @@
 'use client'
 
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useAppStore } from '@/lib/store/appStore'
+import { SIGNATURE_TEMPLATES, SignatureTemplate } from '@/lib/templates/signatureTemplates'
+import TemplateCard from '@/components/templates/TemplateCard'
 
 export default function TemplatesPage() {
+  const router = useRouter()
+  const addSignature = useAppStore((state) => state.addSignature)
+  const setActiveSignatureId = useAppStore((state) => state.setActiveSignatureId)
+
+  function handleUseTemplate(template: SignatureTemplate) {
+    const now = new Date().toISOString()
+    const newSignature = {
+      id: crypto.randomUUID(),
+      name: template.name,
+      fullName: template.data.fullName,
+      jobTitle: template.data.jobTitle ?? '',
+      company: template.data.company ?? '',
+      email: template.data.email ?? '',
+      phone: template.data.phone ?? '',
+      website: template.data.website ?? '',
+      imageUrl: template.data.imageUrl ?? '',
+      socialLinks: template.data.socialLinks,
+      customLinks: template.data.customLinks,
+      branding: template.data.branding,
+      createdAt: now,
+      updatedAt: now,
+    }
+
+    addSignature(newSignature)
+    setActiveSignatureId(newSignature.id)
+    router.push('/editor')
+  }
+
   return (
-    <div className="py-16 text-center">
-      <h1 className="text-2xl font-bold text-gray-900">Signature Templates</h1>
-      <p className="mt-4 text-gray-600 max-w-lg mx-auto">
-        Pre-built signature templates are coming soon. In the meantime, build your
-        signature from scratch in the editor.
-      </p>
-      <div className="mt-6">
-        <Link href="/editor" className="text-sm font-medium text-gray-900 underline hover:text-gray-700">
-          Go to Editor
-        </Link>
+    <div>
+      <div className="mb-8">
+        <h1 className="text-2xl font-bold text-gray-900">Signature Templates</h1>
+        <p className="mt-2 text-gray-600">
+          Pick a template to get started quickly. You can customize every detail in the editor.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {SIGNATURE_TEMPLATES.map((template) => (
+          <TemplateCard
+            key={template.id}
+            template={template}
+            onUse={handleUseTemplate}
+          />
+        ))}
       </div>
     </div>
   )

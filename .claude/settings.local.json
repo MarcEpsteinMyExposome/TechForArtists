@@ -39,7 +39,9 @@
       "Bash(npx next lint)",
       "Bash(git config:*)",
       "Bash(gh auth:*)",
-      "Bash(gh repo create:*)"
+      "Bash(gh repo create:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(npm i:*)"
     ],
     "deny": [
       "Bash(rm:*)",

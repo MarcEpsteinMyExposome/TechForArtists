@@ -1,7 +1,7 @@
 'use client'
 
 import { useAppStore } from '@/lib/store/appStore'
-import { resolveColorPreset } from '@/lib/signature/utils'
+import { resolveColors } from '@/lib/signature/utils'
 import Card from '@/components/ui/Card'
 import HorizontalLayout from '@/components/editor/preview/HorizontalLayout'
 import StackedLayout from '@/components/editor/preview/StackedLayout'
@@ -43,10 +43,10 @@ export default function SignaturePreview() {
     )
   }
 
-  const colors = resolveColorPreset(signature.branding.colorPresetId)
+  const colors = resolveColors(signature.branding)
   const layoutProps = {
     signature,
-    colors: { primary: colors.primary, accent: colors.accent },
+    colors,
   }
 
   const layoutMap = {

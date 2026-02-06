@@ -4,8 +4,8 @@
 
 ## Current Status
 
-**Active Iteration:** 2 - Usable Editor + Deploy
-**Tests:** 178 passing (16 test suites)
+**Active Iteration:** 3 - Branding, Templates & Features
+**Tests:** 198 passing (18 test suites)
 **Build:** Passes (all routes static)
 **Lint:** 0 errors, 2 warnings
 
@@ -54,21 +54,22 @@ Task specs live in `.claude/tasks/` (active) and `.claude/tasks/archive/` (compl
 
 ---
 
-## Iteration 3 (Planned)
+## Iteration 3 (In Progress)
 
-Branding, polish, and templates.
+Branding, polish, templates, and new features.
 
 | Task | Description | Status |
 |------|-------------|--------|
-| IT3-01 | Technology for Artists branding refresh — logo, typography, color palette, consistent identity across all pages | PENDING |
-| IT3-02 | Landing page graphics — hero illustrations or visuals, polish home page with distinctive design | PENDING |
-| IT3-03 | Pre-built signature templates — curated starter templates users can select and customize | PENDING |
+| IT3-01 | Branding refresh — wordmark, typography (Google Font), color accent, footer, nav polish | DONE |
+| IT3-02 | Landing page graphics — mosaic hero background | DONE |
+| IT3-03 | Pre-built signature templates — 5-6 curated starters with "Use Template" flow | DONE |
+| IT3-04 | Profile image upload — photo/URL to replace initials avatar in signatures | DONE |
+| IT3-05 | Custom color picker — arbitrary hex colors beyond the 8 presets | DONE |
+| IT3-06 | "How to use" setup guide — post-copy wizard asking email client, Gmail web step-by-step, polite fallback for others | PENDING |
 
 ---
 
 ## Future Ideas
 
-- **Profile image upload** — Allow users to upload a photo or provide an image URL to replace the initials circle avatar
 - **Multiple signature management** — UI for switching between and managing multiple signatures
-- **Custom color picker** — Allow arbitrary colors beyond the 8 presets
 - **Font selection** — Choose from email-safe fonts

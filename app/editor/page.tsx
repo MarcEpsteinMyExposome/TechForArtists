@@ -5,9 +5,11 @@ import { useAppStore } from '@/lib/store/appStore'
 import SignatureForm from '@/components/editor/SignatureForm'
 import SignaturePreview from '@/components/editor/SignaturePreview'
 import CopyButton from '@/components/editor/CopyButton'
+import SetupGuideModal from '@/components/editor/SetupGuideModal'
 
 export default function EditorPage() {
   const [mounted, setMounted] = useState(false)
+  const [showSetupGuide, setShowSetupGuide] = useState(false)
   const signatures = useAppStore((state) => state.signatures)
   const activeSignatureId = useAppStore((state) => state.activeSignatureId)
   const addSignature = useAppStore((state) => state.addSignature)
@@ -60,10 +62,12 @@ export default function EditorPage() {
 
           <div className="lg:sticky lg:top-6 self-start space-y-4">
             <SignaturePreview />
-            <CopyButton />
+            <CopyButton onCopySuccess={() => setShowSetupGuide(true)} />
           </div>
         </div>
       )}
+
+      <SetupGuideModal isOpen={showSetupGuide} onClose={() => setShowSetupGuide(false)} />
     </div>
   )
 }
