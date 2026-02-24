@@ -39,6 +39,13 @@ export function stripProtocol(url: string): string {
   return url.replace(/^https?:\/\//, '').replace(/\/$/, '')
 }
 
+/** Ensure a URL is absolute by prepending https:// if no protocol is present */
+export function ensureAbsoluteUrl(url: string): string {
+  if (!url) return url
+  if (/^https?:\/\//i.test(url)) return url
+  return `https://${url}`
+}
+
 /** Generate initials from a full name (max 2 chars) */
 export function getInitials(fullName: string): string {
   return fullName

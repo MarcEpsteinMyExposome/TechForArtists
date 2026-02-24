@@ -1,5 +1,5 @@
 import { Signature } from '@/lib/schemas/signature.schema'
-import { escapeHtml, stripProtocol } from '../utils'
+import { escapeHtml, stripProtocol, ensureAbsoluteUrl } from '../utils'
 import { generateSocialLinksHtml } from '../socialIcons'
 import { LayoutColors } from './horizontal'
 
@@ -40,7 +40,7 @@ export function generateCompactHtml(signature: Signature, colors: LayoutColors):
   }
   if (website) {
     contactParts.push(
-      `<a href="${escapeHtml(website)}" style="color: ${colors.accent}; text-decoration: none;">${escapeHtml(stripProtocol(website))}</a>`
+      `<a href="${escapeHtml(ensureAbsoluteUrl(website))}" style="color: ${colors.accent}; text-decoration: none;">${escapeHtml(stripProtocol(website))}</a>`
     )
   }
   if (contactParts.length > 0) {

@@ -1,5 +1,5 @@
 import { Signature } from '@/lib/schemas/signature.schema'
-import { escapeHtml, stripProtocol, generateInitialsAvatarHtml } from '../utils'
+import { escapeHtml, stripProtocol, ensureAbsoluteUrl, generateInitialsAvatarHtml } from '../utils'
 import { generateSocialLinksHtml } from '../socialIcons'
 
 export interface LayoutColors {
@@ -52,7 +52,7 @@ export function generateHorizontalHtml(signature: Signature, colors: LayoutColor
   // Website row
   if (website) {
     infoRows.push(
-      `<tr><td style="font-size: 13px; padding-bottom: 6px;"><a href="${escapeHtml(website)}" style="color: ${colors.accent}; text-decoration: none;">${escapeHtml(stripProtocol(website))}</a></td></tr>`
+      `<tr><td style="font-size: 13px; padding-bottom: 6px;"><a href="${escapeHtml(ensureAbsoluteUrl(website))}" style="color: ${colors.accent}; text-decoration: none;">${escapeHtml(stripProtocol(website))}</a></td></tr>`
     )
   }
 

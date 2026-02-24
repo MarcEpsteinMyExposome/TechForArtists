@@ -1,4 +1,4 @@
-import { escapeHtml, resolveColorPreset, stripProtocol, formatPlatformName } from '@/lib/signature/utils'
+import { escapeHtml, resolveColorPreset, stripProtocol, ensureAbsoluteUrl, formatPlatformName } from '@/lib/signature/utils'
 
 describe('escapeHtml', () => {
   it('escapes ampersands', () => {
@@ -86,6 +86,32 @@ describe('stripProtocol', () => {
 
   it('returns string unchanged if no protocol', () => {
     expect(stripProtocol('example.com')).toBe('example.com')
+  })
+})
+
+describe('ensureAbsoluteUrl', () => {
+  it('leaves https:// URLs unchanged', () => {
+    expect(ensureAbsoluteUrl('https://example.com')).toBe('https://example.com')
+  })
+
+  it('leaves http:// URLs unchanged', () => {
+    expect(ensureAbsoluteUrl('http://example.com')).toBe('http://example.com')
+  })
+
+  it('prepends https:// when no protocol is present', () => {
+    expect(ensureAbsoluteUrl('example.com')).toBe('https://example.com')
+  })
+
+  it('prepends https:// for www. URLs without protocol', () => {
+    expect(ensureAbsoluteUrl('www.myexposome.com')).toBe('https://www.myexposome.com')
+  })
+
+  it('prepends https:// for bare domain without www', () => {
+    expect(ensureAbsoluteUrl('myexposome.com')).toBe('https://myexposome.com')
+  })
+
+  it('returns empty string unchanged', () => {
+    expect(ensureAbsoluteUrl('')).toBe('')
   })
 })
 

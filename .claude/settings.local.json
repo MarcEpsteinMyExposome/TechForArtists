@@ -47,7 +47,11 @@
       "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" log --oneline -5)",
       "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" add CLAUDE.md SESSION.md TASKS.md .claude/settings.local.json)",
       "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" commit -m \"$\\(cat <<''EOF''\ndocs: mark Iteration 3 complete, update test counts and session notes\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
-      "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" push)"
+      "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" push)",
+      "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" add app/globals.css)",
+      "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" commit -m \"$\\(cat <<''EOF''\nfix: disable automatic dark mode to prevent broken styling\n\nTailwind CSS 4 auto-applies dark mode via prefers-color-scheme,\nbut app has no dark mode styles. Switch to class-based dark mode\nso it only activates with an explicit .dark class \\(which we never add\\).\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" status --short)",
+      "Bash(git -C \"c:\\\\Users\\\\marce\\\\Documents\\\\Projects\\\\TechForArtists\" diff .claude/settings.local.json)"
     ],
     "deny": [
       "Bash(rm:*)",

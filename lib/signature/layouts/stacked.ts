@@ -1,5 +1,5 @@
 import { Signature } from '@/lib/schemas/signature.schema'
-import { escapeHtml, stripProtocol, generateInitialsAvatarHtml } from '../utils'
+import { escapeHtml, stripProtocol, ensureAbsoluteUrl, generateInitialsAvatarHtml } from '../utils'
 import { generateSocialLinksHtml } from '../socialIcons'
 import { LayoutColors } from './horizontal'
 
@@ -58,7 +58,7 @@ export function generateStackedHtml(signature: Signature, colors: LayoutColors):
   // Website row
   if (website) {
     rows.push(
-      `<tr><td style="text-align: center; font-size: 13px; padding-bottom: 6px;"><a href="${escapeHtml(website)}" style="color: ${colors.accent}; text-decoration: none;">${escapeHtml(stripProtocol(website))}</a></td></tr>`
+      `<tr><td style="text-align: center; font-size: 13px; padding-bottom: 6px;"><a href="${escapeHtml(ensureAbsoluteUrl(website))}" style="color: ${colors.accent}; text-decoration: none;">${escapeHtml(stripProtocol(website))}</a></td></tr>`
     )
   }
 

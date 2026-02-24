@@ -1,5 +1,5 @@
 import { SocialLink, CustomLink } from '@/lib/schemas/signature.schema'
-import { formatPlatformName, escapeHtml } from './utils'
+import { formatPlatformName, escapeHtml, ensureAbsoluteUrl } from './utils'
 
 // ─── Social Icon URL Mapping ────────────────────────────────────────
 
@@ -56,11 +56,11 @@ export function generateSocialLinksHtml(
     const iconUrl = getSocialIconUrl(link.platform)
     if (iconUrl) {
       iconTags.push(
-        `<a href="${escapeHtml(link.url)}" style="text-decoration: none;"><img src="${escapeHtml(iconUrl)}" width="20" height="20" alt="${escapeHtml(formatPlatformName(link.platform))}" style="display: inline-block; vertical-align: middle; border: 0;" /></a>`
+        `<a href="${escapeHtml(ensureAbsoluteUrl(link.url))}" style="text-decoration: none;"><img src="${escapeHtml(iconUrl)}" width="20" height="20" alt="${escapeHtml(formatPlatformName(link.platform))}" style="display: inline-block; vertical-align: middle; border: 0;" /></a>`
       )
     } else {
       textTags.push(
-        `<a href="${escapeHtml(link.url)}" style="${textLinkStyle}">${escapeHtml(formatPlatformName(link.platform))}</a>`
+        `<a href="${escapeHtml(ensureAbsoluteUrl(link.url))}" style="${textLinkStyle}">${escapeHtml(formatPlatformName(link.platform))}</a>`
       )
     }
   }
@@ -68,7 +68,7 @@ export function generateSocialLinksHtml(
   // Custom links always render as text
   const customTags = customLinks.map(
     (link) =>
-      `<a href="${escapeHtml(link.url)}" style="${textLinkStyle}">${escapeHtml(link.label)}</a>`
+      `<a href="${escapeHtml(ensureAbsoluteUrl(link.url))}" style="${textLinkStyle}">${escapeHtml(link.label)}</a>`
   )
 
   const allTextTags = [...textTags, ...customTags]

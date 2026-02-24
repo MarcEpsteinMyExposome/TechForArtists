@@ -1,7 +1,7 @@
 'use client'
 
 import { Signature } from '@/lib/schemas/signature.schema'
-import { formatPlatformName, stripProtocol } from '@/lib/signature/utils'
+import { formatPlatformName, stripProtocol, ensureAbsoluteUrl } from '@/lib/signature/utils'
 import { getSocialIconUrl } from '@/lib/signature/iconUrls'
 
 interface SignatureLayoutProps {
@@ -47,7 +47,7 @@ export default function CompactLayout({ signature, colors }: SignatureLayoutProp
           {socialLinks.map((link) => {
             const iconUrl = getSocialIconUrl(link.platform)
             return iconUrl ? (
-              <a key={link.platform} href={link.url} target="_blank" rel="noopener noreferrer" title={formatPlatformName(link.platform)}>
+              <a key={link.platform} href={ensureAbsoluteUrl(link.url)} target="_blank" rel="noopener noreferrer" title={formatPlatformName(link.platform)}>
                 <img src={iconUrl} alt={formatPlatformName(link.platform)} className="h-4 w-4" />
               </a>
             ) : (
